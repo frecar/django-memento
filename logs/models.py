@@ -9,7 +9,7 @@ from logs import choices
 
 class LogEntry(models.Model):
     message = models.TextField()
-    content_type = models.ForeignKey(ContentType)
+    content_type = models.ForeignKey(ContentType, related_name='log_entries')
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
     severity = models.IntegerField(choices=getattr(settings, 'LOGS_SEVERITY_CHOICES', choices.SEVERITIES))
