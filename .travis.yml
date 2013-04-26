@@ -15,4 +15,4 @@ install:
 script: python setup.py test
 
 before_script:
-  - psql -c 'create database django_logs;' -U postgres
+  - psql -c 'create database django_memento;' -U postgres

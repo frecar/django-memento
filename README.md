@@ -1,2 +1,2 @@
-django-logs
+django-memento
 ===========

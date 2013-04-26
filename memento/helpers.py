@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 from django.contrib.contenttypes.models import ContentType
 
-from logs.models import LogEntry
+from memento.models import LogEntry
 
 
 class Logger(object):

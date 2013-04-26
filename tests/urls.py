@@ -2,5 +2,5 @@
 from django.conf.urls import patterns, url, include
 
 urlpatterns = patterns('',
-    url(r'^logs/', include('logs.urls')),
+    url(r'^logs/', include('memento.urls')),
 )

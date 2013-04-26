@@ -5,7 +5,7 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_logs',
+        'NAME': 'django_memento',
     }
 }
 
@@ -15,7 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
 
-    'logs',
+    'memento',
     'tests',
 ]
 AUTHENTICATION_BACKENDS = (

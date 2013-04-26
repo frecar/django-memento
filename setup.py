@@ -4,9 +4,9 @@ from setuptools import setup, find_packages
 os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.settings'
 
 setup(
-    name="django-logs",
+    name="django-memento",
     version='0.1',
-    url='http://github.com/relekang/django-logs',
+    url='http://github.com/relekang/django-memento',
     author='Rolf Erik Lekang',
     author_email='me@rolflekang.com',
     description='Simple reusable django app for logging events within a django project',
