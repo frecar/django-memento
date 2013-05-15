@@ -6,7 +6,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.settings'
 setup(
     name="django-memento",
     version='0.1',
-    url='http://github.com/relekang/django-memento',
+    url='http://relekang.github.io/django-memento',
     author='Rolf Erik Lekang',
     author_email='me@rolflekang.com',
     description='Simple reusable django app for logging events within a django project',
