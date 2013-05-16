@@ -23,3 +23,8 @@ Logger.log(message, object, severity):
 
 ### MEMENTO_SEVERITY_CHOICES
 Can be used to define your own severity choices.
+
+### MEMENTO_SEVERITY_DEFAULT
+**default:** 1
+
+The default severity of a log entry

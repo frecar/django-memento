@@ -12,7 +12,10 @@ class LogEntry(models.Model):
     content_type = models.ForeignKey(ContentType, related_name='log_entries')
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
-    severity = models.IntegerField(choices=getattr(settings, 'MEMENTO_SEVERITY_CHOICES', choices.SEVERITIES))
+    severity = models.IntegerField(
+        choices=getattr(settings, 'MEMENTO_SEVERITY_CHOICES', choices.SEVERITIES),
+        default=getattr(settings, 'MEMENTO_SEVERITY_DEFAULT', 1)
+    )
     last_timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
