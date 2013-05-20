@@ -13,4 +13,7 @@ class LogEntryAdmin(admin.ModelAdmin):
     readonly_fields = ('message', 'severity', 'last_timestamp')
     fields = ('message', 'severity', 'last_timestamp')
 
+    def has_add_permission(self, request):
+        return False
+
 admin.site.register(LogEntry, LogEntryAdmin)
