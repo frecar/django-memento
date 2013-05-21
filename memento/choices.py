@@ -9,6 +9,3 @@ SEVERITIES = (
     (4, _('High')),
     (5, _('Very High')),
 )
-
-Logger.get_log
-
