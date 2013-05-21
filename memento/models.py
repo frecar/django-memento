@@ -9,8 +9,8 @@ from memento import choices
 
 class LogEntry(models.Model):
     message = models.TextField()
-    content_type = models.ForeignKey(ContentType, related_name='log_entries')
-    object_id = models.PositiveIntegerField()
+    content_type = models.ForeignKey(ContentType, related_name='log_entries', null=True)
+    object_id = models.PositiveIntegerField(null=True)
     content_object = generic.GenericForeignKey('content_type', 'object_id')
     severity = models.IntegerField(
         choices=getattr(settings, 'MEMENTO_SEVERITY_CHOICES', choices.SEVERITIES),
