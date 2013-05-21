@@ -27,4 +27,4 @@ class Logger(object):
                 severity=severity
             )
 
-        entry.add_event()
+        entry[0].add_event()
