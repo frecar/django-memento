@@ -9,7 +9,7 @@ class EventInline(admin.TabularInline):
 
 
 class LogEntryAdmin(admin.ModelAdmin):
-    list_display = ('message', 'severity', 'last_timestamp')
+    list_display = ('message', 'count', 'severity', 'last_timestamp')
     readonly_fields = ('message', 'severity', 'last_timestamp')
     fields = ('message', 'severity', 'last_timestamp')
 
