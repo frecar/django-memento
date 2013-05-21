@@ -1,6 +1,5 @@
 # -*- coding: utf8 -*-
 from django.utils.translation import ugettext_lazy as _
-from memento.helpers import Logger
 
 SEVERITIES = (
     (1, _('Very low')),

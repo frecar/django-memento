@@ -36,7 +36,7 @@ class Logger(object):
         entry[0].add_event()
 
     @staticmethod
-    def get_log(obj, severity=None):
+    def get_log(obj):
         """
         Get log entries related to object
 
@@ -49,6 +49,5 @@ class Logger(object):
 
         return LogEntry.objects.filter(
             content_type=ContentType.objects.get_for_model(obj),
-            object_id=obj.id,
-            severity=severity
+            object_id=obj.id
         )

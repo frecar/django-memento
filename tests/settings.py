@@ -4,11 +4,9 @@ DEBUG = False
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_memento',
+        'ENGINE': 'django.db.backends.sqlite3',
     }
 }
-
 
 INSTALLED_APPS = [
     'django.contrib.auth',

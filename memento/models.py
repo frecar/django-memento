@@ -3,7 +3,6 @@ from django.conf import settings
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-
 from memento import choices
 
 

@@ -1,6 +1,7 @@
 *.py[cod]
 .idea
 venv
+.DS_Store
 
 # C extensions
 *.so
