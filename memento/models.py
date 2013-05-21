@@ -9,10 +9,13 @@ from memento import choices
 
 class LogEntry(models.Model):
     message = models.TextField()
-    content_type = models.ForeignKey(ContentType, related_name='log_entries')
-    object_id = models.PositiveIntegerField()
+    content_type = models.ForeignKey(ContentType, related_name='log_entries', null=True)
+    object_id = models.PositiveIntegerField(null=True)
     content_object = generic.GenericForeignKey('content_type', 'object_id')
-    severity = models.IntegerField(choices=getattr(settings, 'MEMENTO_SEVERITY_CHOICES', choices.SEVERITIES))
+    severity = models.IntegerField(
+        choices=getattr(settings, 'MEMENTO_SEVERITY_CHOICES', choices.SEVERITIES),
+        default=getattr(settings, 'MEMENTO_SEVERITY_DEFAULT', 1)
+    )
     last_timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -20,7 +23,11 @@ class LogEntry(models.Model):
 
     @property
     def count(self):
-        return self.events.objects.all().count()
+        return self.events.all().count()
+
+    @property
+    def object_as_string(self):
+        return str(self.content_object)
 
     def add_event(self):
         Event.objects.create(entry=self)

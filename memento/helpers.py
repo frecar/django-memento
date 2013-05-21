@@ -1,4 +1,5 @@
 # -*- coding: utf8 -*-
+from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 
 from memento.models import LogEntry
@@ -7,26 +8,18 @@ from memento.models import LogEntry
 class Logger(object):
 
     @staticmethod
-    def log(self, message, obj=None, severity=None):
+    def log(message, obj=None, severity=getattr(settings, 'MEMENTO_SEVERITY_DEFAULT', 1)):
         """
-        Create LogEntry for object with message and severity
+        Adds a log entry and an event related to that log entry.
 
-        message: a string
-        object: can be a model
-        severity is a number from 1-5
-
-        1: Very low
-        2: Low
-        3: Medium
-        4: High
-        5: Very High
-
+        :param message: a string
+        :param obj: a model, optional
+        :param severity: a integer, optional
 
         :type message str
         :type obj object
         :type severity int
         """
-
         if not obj is None:
             entry = LogEntry.objects.get_or_create(
                 message=message,
@@ -40,14 +33,20 @@ class Logger(object):
                 severity=severity
             )
 
-        entry.add_event()
+        entry[0].add_event()
 
     @staticmethod
-    def get_log(self, obj, severity=None):
+    def get_log(obj, severity=None):
         """
+        Get log entries related to object
+
+        :param obj: a model, optional
+        :param severity: a integer, optional
+
         :type obj object
         :type severity int
         """
+
         return LogEntry.objects.filter(
             content_type=ContentType.objects.get_for_model(obj),
             object_id=obj.id,

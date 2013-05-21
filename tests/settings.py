@@ -18,10 +18,6 @@ INSTALLED_APPS = [
     'memento',
     'tests',
 ]
-AUTHENTICATION_BACKENDS = (
-    'django_nopassword.backends.EmailBackend',
-    'django.contrib.auth.backends.ModelBackend'
-)
 
 TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
