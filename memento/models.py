@@ -25,6 +25,10 @@ class LogEntry(models.Model):
     def count(self):
         return self.events.all().count()
 
+    @property
+    def object_as_string(self):
+        return str(self.content_object)
+
     def add_event(self):
         Event.objects.create(entry=self)
 
