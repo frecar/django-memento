@@ -36,7 +36,7 @@ class Logger(object):
         entry[0].add_event()
 
     @staticmethod
-    def get_log(obj):
+    def get_log_entry(obj):
         """
         Get log entries related to object
 
